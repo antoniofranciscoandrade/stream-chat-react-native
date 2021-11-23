@@ -16,6 +16,7 @@ import {
   Streami18n,
   Thread,
   useAttachmentPickerContext,
+  Reply,
 } from 'stream-chat-expo';
 
 import { useStreamChatTheme } from './useStreamChatTheme';
@@ -82,7 +83,12 @@ const ChannelScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
       <Chat client={chatClient} i18nInstance={streami18n}>
-        <Channel channel={channel} keyboardVerticalOffset={headerHeight} thread={thread}>
+        <Channel
+          channel={channel}
+          keyboardVerticalOffset={headerHeight}
+          thread={thread}
+          Reply={() => <Reply />}
+        >
           <View style={{ flex: 1 }}>
             <MessageList
               onThreadSelect={(thread) => {
